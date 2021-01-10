@@ -382,13 +382,13 @@
     "blocknumberParam": {
       "type": "string",
       "description": "The target block number for eth_call requests. One of 'earliest/latest/pending', a number or a hex string (header: x-manifold-blocknumber)",
-      "name": "kld-blocknumber",
+      "name": "manifold-blocknumber",
       "in": "query"
     },
     "callParam": {
       "type": "boolean",
       "description": "Perform a read-only call with the same parameters that would be used to invoke, and return result (header: x-manifold-call)",
-      "name": "kld-call",
+      "name": "manifold-call",
       "in": "query",
       "allowEmptyValue": true
     },
@@ -396,59 +396,59 @@
       "type": "string",
       "default": "0xf62fbd52d83fded97386fb9dfcb0bfbb3c164147",
       "description": "The 'from' address (header: x-manifold-from)",
-      "name": "kld-from",
+      "name": "manifold-from",
       "in": "query"
     },
     "gasParam": {
       "type": "integer",
       "description": "Gas to send with the transaction (auto-calculated if not set) (header: x-manifold-gas)",
-      "name": "kld-gas",
+      "name": "manifold-gas",
       "in": "query",
       "allowEmptyValue": true
     },
     "gaspriceParam": {
       "type": "integer",
       "description": "Gas Price offered (header: x-manifold-gasprice)",
-      "name": "kld-gasprice",
+      "name": "manifold-gasprice",
       "in": "query",
       "allowEmptyValue": true
     },
     "privacyGroupIdParam": {
       "type": "string",
       "description": "Private transaction group ID (header: x-manifold-privacyGroupId)",
-      "name": "kld-privacygroupid",
+      "name": "manifold-privacygroupid",
       "in": "query"
     },
     "privateForParam": {
       "type": "string",
       "description": "Private transaction recipients (comma separated or multiple params) (header: x-manifold-privatefor)",
-      "name": "kld-privatefor",
+      "name": "manifold-privatefor",
       "in": "query"
     },
     "privateFromParam": {
       "type": "string",
       "description": "Private transaction sender (header: x-manifold-privatefrom)",
-      "name": "kld-privatefrom",
+      "name": "manifold-privatefrom",
       "in": "query"
     },
     "registerParam": {
       "type": "string",
       "description": "Register the installed contract on a friendly path (overwrites existing) (header: x-manifold-register)",
-      "name": "kld-register",
+      "name": "manifold-register",
       "in": "query"
     },
     "syncParam": {
       "type": "boolean",
       "default": true,
       "description": "Block the HTTP request until the tx is mined (does not store the receipt) (header: x-manifold-sync)",
-      "name": "kld-sync",
+      "name": "manifold-sync",
       "in": "query",
       "allowEmptyValue": true
     },
     "valueParam": {
       "type": "integer",
       "description": "Ether value to send with the transaction (header: x-manifold-ethvalue)",
-      "name": "kld-ethvalue",
+      "name": "manifold-ethvalue",
       "in": "query",
       "allowEmptyValue": true
     }
