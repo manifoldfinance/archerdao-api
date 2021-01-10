@@ -1,0 +1,456 @@
+{
+  "schemes": ["https"],
+  "swagger": "2.0",
+  "info": { "title": "gateawys", "version": "1.0" },
+  "host": "archer.backbonecabal.com",
+  "basePath": "/gateways/archerdao",
+  "paths": {
+    "/": {
+      "post": {
+        "consumes": ["application/json", "application/x-yaml"],
+        "produces": ["application/json"],
+        "summary": "constructor()",
+        "operationId": "constructor_post",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/constructor_inputs" }
+          },
+          { "$ref": "#/parameters/fromParam" },
+          { "$ref": "#/parameters/valueParam" },
+          { "$ref": "#/parameters/gasParam" },
+          { "$ref": "#/parameters/gaspriceParam" },
+          { "$ref": "#/parameters/syncParam" },
+          { "$ref": "#/parameters/callParam" },
+          { "$ref": "#/parameters/privateFromParam" },
+          { "$ref": "#/parameters/privateForParam" },
+          { "$ref": "#/parameters/blocknumberParam" },
+          { "$ref": "#/parameters/registerParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": { "$ref": "#/definitions/constructor_outputs" }
+          },
+          "default": {
+            "description": "error",
+            "schema": { "$ref": "#/definitions/error" }
+          }
+        }
+      }
+    },
+    "/{address}/getPrice": {
+      "get": {
+        "produces": ["application/json"],
+        "summary": "getPrice(address,bytes) [read only]",
+        "operationId": "getPrice_get",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The contract address",
+            "name": "address",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "address: contract to query",
+            "name": "contractAddress",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "bytes: the bytecode for the contract call",
+            "name": "data",
+            "in": "query",
+            "required": true
+          },
+          { "$ref": "#/parameters/fromParam" },
+          { "$ref": "#/parameters/valueParam" },
+          { "$ref": "#/parameters/gasParam" },
+          { "$ref": "#/parameters/gaspriceParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": { "$ref": "#/definitions/getPrice_outputs" }
+          },
+          "default": {
+            "description": "error",
+            "schema": { "$ref": "#/definitions/error" }
+          }
+        }
+      },
+      "post": {
+        "consumes": ["application/json", "application/x-yaml"],
+        "produces": ["application/json"],
+        "summary": "getPrice(address,bytes) [read only]",
+        "operationId": "getPrice_post",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The contract address",
+            "name": "address",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/getPrice_inputs" }
+          },
+          { "$ref": "#/parameters/fromParam" },
+          { "$ref": "#/parameters/valueParam" },
+          { "$ref": "#/parameters/gasParam" },
+          { "$ref": "#/parameters/gaspriceParam" },
+          { "$ref": "#/parameters/syncParam" },
+          { "$ref": "#/parameters/callParam" },
+          { "$ref": "#/parameters/privateFromParam" },
+          { "$ref": "#/parameters/privateForParam" },
+          { "$ref": "#/parameters/blocknumberParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": { "$ref": "#/definitions/getPrice_outputs" }
+          },
+          "default": {
+            "description": "error",
+            "schema": { "$ref": "#/definitions/error" }
+          }
+        }
+      }
+    },
+    "/{address}/query": {
+      "get": {
+        "produces": ["application/json"],
+        "summary": "query(bytes,uint256[]) [read only]",
+        "operationId": "query_get",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The contract address",
+            "name": "address",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "bytes: the compiled bytecode for the series of function calls to get the final price",
+            "name": "script",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "uint256[]: index locations within the script to insert input amounts dynamically",
+            "name": "inputLocations",
+            "in": "query",
+            "required": true
+          },
+          { "$ref": "#/parameters/fromParam" },
+          { "$ref": "#/parameters/valueParam" },
+          { "$ref": "#/parameters/gasParam" },
+          { "$ref": "#/parameters/gaspriceParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": { "$ref": "#/definitions/query_outputs" }
+          },
+          "default": {
+            "description": "error",
+            "schema": { "$ref": "#/definitions/error" }
+          }
+        }
+      },
+      "post": {
+        "consumes": ["application/json", "application/x-yaml"],
+        "produces": ["application/json"],
+        "summary": "query(bytes,uint256[]) [read only]",
+        "operationId": "query_post",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The contract address",
+            "name": "address",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/query_inputs" }
+          },
+          { "$ref": "#/parameters/fromParam" },
+          { "$ref": "#/parameters/valueParam" },
+          { "$ref": "#/parameters/gasParam" },
+          { "$ref": "#/parameters/gaspriceParam" },
+          { "$ref": "#/parameters/syncParam" },
+          { "$ref": "#/parameters/callParam" },
+          { "$ref": "#/parameters/privateFromParam" },
+          { "$ref": "#/parameters/privateForParam" },
+          { "$ref": "#/parameters/blocknumberParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": { "$ref": "#/definitions/query_outputs" }
+          },
+          "default": {
+            "description": "error",
+            "schema": { "$ref": "#/definitions/error" }
+          }
+        }
+      }
+    },
+    "/{address}/queryAllPrices": {
+      "get": {
+        "produces": ["application/json"],
+        "summary": "queryAllPrices(bytes,uint256[]) [read only]",
+        "operationId": "queryAllPrices_get",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The contract address",
+            "name": "address",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "bytes: the compiled bytecode for the series of function calls to get the final price",
+            "name": "script",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "uint256[]: index locations within the script to insert input amounts dynamically",
+            "name": "inputLocations",
+            "in": "query",
+            "required": true
+          },
+          { "$ref": "#/parameters/fromParam" },
+          { "$ref": "#/parameters/valueParam" },
+          { "$ref": "#/parameters/gasParam" },
+          { "$ref": "#/parameters/gaspriceParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": { "$ref": "#/definitions/queryAllPrices_outputs" }
+          },
+          "default": {
+            "description": "error",
+            "schema": { "$ref": "#/definitions/error" }
+          }
+        }
+      },
+      "post": {
+        "consumes": ["application/json", "application/x-yaml"],
+        "produces": ["application/json"],
+        "summary": "queryAllPrices(bytes,uint256[]) [read only]",
+        "operationId": "queryAllPrices_post",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The contract address",
+            "name": "address",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/queryAllPrices_inputs" }
+          },
+          { "$ref": "#/parameters/fromParam" },
+          { "$ref": "#/parameters/valueParam" },
+          { "$ref": "#/parameters/gasParam" },
+          { "$ref": "#/parameters/gaspriceParam" },
+          { "$ref": "#/parameters/syncParam" },
+          { "$ref": "#/parameters/callParam" },
+          { "$ref": "#/parameters/privateFromParam" },
+          { "$ref": "#/parameters/privateForParam" },
+          { "$ref": "#/parameters/blocknumberParam" }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": { "$ref": "#/definitions/queryAllPrices_outputs" }
+          },
+          "default": {
+            "description": "error",
+            "schema": { "$ref": "#/definitions/error" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "constructor_inputs": { "type": "object" },
+    "constructor_outputs": { "type": "object" },
+    "error": {
+      "properties": {
+        "error": { "description": "Error message", "type": "string" }
+      }
+    },
+    "getPrice_inputs": {
+      "type": "object",
+      "properties": {
+        "contractAddress": {
+          "description": "address: contract to query",
+          "type": "string",
+          "pattern": "^(0x)?[a-fA-F0-9]{40}$"
+        },
+        "data": {
+          "description": "bytes: the bytecode for the contract call",
+          "type": "string",
+          "pattern": "^(0x)?[a-fA-F0-9]+$"
+        }
+      }
+    },
+    "getPrice_outputs": {
+      "type": "object",
+      "properties": {
+        "output": {
+          "description": "bytes",
+          "type": "string",
+          "pattern": "^(0x)?[a-fA-F0-9]+$"
+        }
+      }
+    },
+    "queryAllPrices_inputs": {
+      "type": "object",
+      "properties": {
+        "inputLocations": {
+          "description": "uint256[]: index locations within the script to insert input amounts dynamically",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^-?[0-9]+$" }
+        },
+        "script": {
+          "description": "bytes: the compiled bytecode for the series of function calls to get the final price",
+          "type": "string",
+          "pattern": "^(0x)?[a-fA-F0-9]+$"
+        }
+      }
+    },
+    "queryAllPrices_outputs": {
+      "type": "object",
+      "properties": {
+        "output": {
+          "description": "bytes",
+          "type": "string",
+          "pattern": "^(0x)?[a-fA-F0-9]+$"
+        }
+      }
+    },
+    "query_inputs": {
+      "type": "object",
+      "properties": {
+        "inputLocations": {
+          "description": "uint256[]: index locations within the script to insert input amounts dynamically",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^-?[0-9]+$" }
+        },
+        "script": {
+          "description": "bytes: the compiled bytecode for the series of function calls to get the final price",
+          "type": "string",
+          "pattern": "^(0x)?[a-fA-F0-9]+$"
+        }
+      }
+    },
+    "query_outputs": {
+      "type": "object",
+      "properties": {
+        "output": {
+          "description": "uint256",
+          "type": "string",
+          "pattern": "^-?[0-9]+$"
+        }
+      }
+    }
+  },
+  "parameters": {
+    "blocknumberParam": {
+      "type": "string",
+      "description": "The target block number for eth_call requests. One of 'earliest/latest/pending', a number or a hex string (header: x-manifold-blocknumber)",
+      "name": "kld-blocknumber",
+      "in": "query"
+    },
+    "callParam": {
+      "type": "boolean",
+      "description": "Perform a read-only call with the same parameters that would be used to invoke, and return result (header: x-manifold-call)",
+      "name": "kld-call",
+      "in": "query",
+      "allowEmptyValue": true
+    },
+    "fromParam": {
+      "type": "string",
+      "default": "0xf62fbd52d83fded97386fb9dfcb0bfbb3c164147",
+      "description": "The 'from' address (header: x-manifold-from)",
+      "name": "kld-from",
+      "in": "query"
+    },
+    "gasParam": {
+      "type": "integer",
+      "description": "Gas to send with the transaction (auto-calculated if not set) (header: x-manifold-gas)",
+      "name": "kld-gas",
+      "in": "query",
+      "allowEmptyValue": true
+    },
+    "gaspriceParam": {
+      "type": "integer",
+      "description": "Gas Price offered (header: x-manifold-gasprice)",
+      "name": "kld-gasprice",
+      "in": "query",
+      "allowEmptyValue": true
+    },
+    "privacyGroupIdParam": {
+      "type": "string",
+      "description": "Private transaction group ID (header: x-manifold-privacyGroupId)",
+      "name": "kld-privacygroupid",
+      "in": "query"
+    },
+    "privateForParam": {
+      "type": "string",
+      "description": "Private transaction recipients (comma separated or multiple params) (header: x-manifold-privatefor)",
+      "name": "kld-privatefor",
+      "in": "query"
+    },
+    "privateFromParam": {
+      "type": "string",
+      "description": "Private transaction sender (header: x-manifold-privatefrom)",
+      "name": "kld-privatefrom",
+      "in": "query"
+    },
+    "registerParam": {
+      "type": "string",
+      "description": "Register the installed contract on a friendly path (overwrites existing) (header: x-manifold-register)",
+      "name": "kld-register",
+      "in": "query"
+    },
+    "syncParam": {
+      "type": "boolean",
+      "default": true,
+      "description": "Block the HTTP request until the tx is mined (does not store the receipt) (header: x-manifold-sync)",
+      "name": "kld-sync",
+      "in": "query",
+      "allowEmptyValue": true
+    },
+    "valueParam": {
+      "type": "integer",
+      "description": "Ether value to send with the transaction (header: x-manifold-ethvalue)",
+      "name": "kld-ethvalue",
+      "in": "query",
+      "allowEmptyValue": true
+    }
+  }
+}
