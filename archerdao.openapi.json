@@ -1,7 +1,7 @@
 {
   "schemes": ["https"],
   "swagger": "2.0",
-  "info": { "title": "gateawys", "version": "1.0" },
+  "info": { "title": "ArcherDAO", "version": "1.0" },
   "host": "archer.backbonecabal.com",
   "basePath": "/gateways/archerdao",
   "paths": {

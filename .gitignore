@@ -6,3 +6,6 @@ node_modules
 *.tar
 *.log
 
+
+# Local Netlify folder
+.netlify
